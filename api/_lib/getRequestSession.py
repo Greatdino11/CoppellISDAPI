@@ -5,7 +5,7 @@ import lxml
 def getRequestSession(username, password):
     requestSession = requests.session()
 
-    loginScreenResponse = requestSession.get("https://hac.friscoisd.org/HomeAccess/Account/LogOn?ReturnUrl=%2fHomeAccess%2f").text
+    loginScreenResponse = requestSession.get("https://hac.coppellisd.com/HomeAccess/Account/LogOn?ReturnUrl=%2fHomeAccess%2f").text
 
     parser =  BeautifulSoup(loginScreenResponse, "lxml")
 
@@ -16,7 +16,7 @@ def getRequestSession(username, password):
         'X-Requested-With': 'XMLHttpRequest',
         'Host': 'hac.friscoisd.org',
         'Origin': 'hac.friscoisd.org',
-        'Referer': "https://hac.friscoisd.org/HomeAccess/Account/LogOn?ReturnUrl=%2fhomeaccess%2f",
+        'Referer': "https://hac.coppellisd.com/HomeAccess/Account/LogOn?ReturnUrl=%2fhomeaccess%2f",
         '__RequestVerificationToken': requestVerificationToken
     }
 
@@ -33,7 +33,7 @@ def getRequestSession(username, password):
     }
 
     pageDOM = requestSession.post(
-        "https://hac.friscoisd.org/HomeAccess/Account/LogOn?ReturnUrl=%2fHomeAccess%2f",
+        "https://hac.coppellisd.com/HomeAccess/Account/LogOn?ReturnUrl=%2fHomeAccess%2f",
         data=requestPayload,
         headers=requestHeaders
     )
